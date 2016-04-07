@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <section name="Create wager">
+                <form name="ctrl.form" novalidate
+                      ng-controller="FormCtrl as ctrl"
+                      ng-submit="ctrl.onSubmit()">
+
+                    <div class="form-group">
+                        <label class="control-label">Game</label>
+                        <select name="" class="form-control" ng-model="ctrl.game" required>
+                            <option value="Lotto">Lotto</option>
+                            <option value="Keno">Keno</option>
+                            <option value="Pick3">Pick3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Price</label>
+                        <input type="number" class="form-control" ng-model="ctrl.price" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit"
+                                class="btn btn-primary"
+                                ng-disabled="ctrl.form.$invalid">Add wager
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <section name=Quick Picks" ng-controller="QuickPickCtrl as ctrl">
+                <qp-button game="Lotto" price="1" action="ctrl.add(wager)"></qp-button>
+                <qp-button game="Keno" price="2" action="ctrl.add(wager)"></qp-button>
+                <qp-button game="Pick3" price="5" action="ctrl.add(wager)"></qp-button>
+            </section>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <section name="Sales list">
+                <div ng-controller="SalesListCtrl as ctrl">
+                    <table class="table">
+                        <thead>
+                            <th>Game</th>
+                            <th>Price</th>
+                            <th></th>
+                        </thead>
+                        <tfoot>
+                            <th class="text-right">Total</th>
+                            <td>{{ctrl.getTotal() | currency}}</td>
+                            <td></td>
+                        </tfoot>
+                        <tbody>
+                            <tr ng-repeat="wager in ctrl.getWagers()">
+                                <td>{{wager.game}}</td>
+                                <td>{{wager.price}}</td>
+                                <td>
+                                    <span class="close" ng-click="ctrl.removeWager(wager)">
+                                        &times;
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!aor-table headers="['Game', 'Price', '']"
+                               items="ctrl.getWagers(wager)"></aor-table
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
