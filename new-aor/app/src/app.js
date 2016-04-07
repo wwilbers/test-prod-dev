@@ -5,4 +5,6 @@ angular.module("newAor", ['ui.router'])
         templateUrl: 'views/dashboard.html'
     });
     $urlRouterProvider.otherwise('/dashboard');
+    console.log('pretend bug fix here!');
 });
+
