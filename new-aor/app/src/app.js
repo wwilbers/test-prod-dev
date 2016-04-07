@@ -6,5 +6,6 @@ angular.module("newAor", ['ui.router'])
     });
     $urlRouterProvider.otherwise('/dashboard');
     console.log('pretend bug fix here!');
+    //Global baseline fix made by product group to baseline version 2.0
 });
-
+//JIRA-1234 changes
