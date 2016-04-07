@@ -3,4 +3,5 @@ angular.module('newAor')
     this.add = function(wager){
         return WagersService.add(wager);
     };
+    //Pretend added feature here
 }
